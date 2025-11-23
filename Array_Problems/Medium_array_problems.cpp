@@ -206,3 +206,44 @@ int main(){
 
 
 }
+
+// to print the subarray also
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+
+    int sum=0;
+    int maxi=INT_MIN;
+    int start,ansstart,ansend;
+    for(int i=0;i<n;i++){
+        if(sum==0) start=i;
+        
+        sum+=arr[i];
+
+        if(sum>maxi){
+            maxi=sum;
+            ansstart=start;
+            ansend=i;
+
+        }
+
+        if(sum<0){
+            sum=0;
+        }
+    }
+    cout << "Max sub array : "<< maxi;
+    cout << "\nMax sub array is from index : "<< "[" << ansstart <<"," << ansend << "]";
+
+    return 0;
+
+
+}
