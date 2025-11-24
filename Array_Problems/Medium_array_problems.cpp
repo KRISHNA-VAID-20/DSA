@@ -247,3 +247,32 @@ int main(){
 
 
 }
+
+// Best time to buy and sell stocks 
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+
+    int mini=arr[0];
+    int profit=0;
+
+    for(int i=1;i<n;i++){
+        int cost=arr[i]-mini;
+        profit=max(profit,cost);
+        mini=min(mini,arr[i]);
+    }
+    cout << "profit = " << profit;
+
+    return 0;
+}
+
