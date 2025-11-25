@@ -276,3 +276,44 @@ int main(){
     return 0;
 }
 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+
+    vector <int> tot(n,0);
+
+    int pos=0;
+    int neg=1;
+
+    for(int i=0;i<n;i++){
+        if(arr[i]<0){
+            tot[neg]=arr[i];
+            neg+=2;
+
+        }
+        else{
+            tot[pos]=arr[i];
+            pos+=2;
+        }
+    }
+
+    cout << "New array : ";
+    for(auto it: tot){
+        cout << it << " ";
+    }
+
+    return 0;
+
+   
+
+}
