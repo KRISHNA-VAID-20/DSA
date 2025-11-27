@@ -358,3 +358,37 @@ int main(){
 
 //         reverse(nums.begin()+ index+1,nums.end());
 //         return ;
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    vector <int> leaders;
+
+
+    int maxright=arr[n-1];
+    leaders.push_back(maxright);
+
+    for(int i=n-2;i>=0;i--){
+        if(arr[i]>maxright){
+            leaders.push_back(arr[i]);
+            maxright=arr[i];
+        }
+    }
+    reverse(leaders.begin(),leaders.end());
+    cout << "Leaders : ";
+    for(auto it : leaders){
+        cout << it << " ";
+    }
+    return 0;
+}
