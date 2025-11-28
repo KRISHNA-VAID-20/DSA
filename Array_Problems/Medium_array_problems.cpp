@@ -392,3 +392,58 @@ int main(){
     }
     return 0;
 }
+
+// Set Zeroes matrix
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int m,n;
+    cout << "m : ";
+    cin >> m;
+    cout << "n : ";
+    cin >> n;
+    int arr[m][n];
+    int row[m];
+    int col[n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout << "\nMAtrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(arr[i][j] ==0){
+                row[i]=1;
+                col[i]=1;
+            }
+        }
+    }
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(row[i] ==1 || col[j] ==1){
+                arr[i][j]=0;
+            }
+        }
+    }
+
+    cout << "\nNew matrix : ";
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+    return 0;
+}
