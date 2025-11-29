@@ -595,3 +595,60 @@ int main(){
     }
 
 }
+
+// Rotate by 90 degree (Brute force) ---
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int m,n;
+    cout << "m : ";
+    cin >> m;
+    cout << "n : ";
+    cin >> n;
+    int arr[m][n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout << "\nMatrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    for(int i=0;i<m;i++){
+        for(int j=i+1;j<n;j++){
+            swap(arr[i][j],arr[j][i]);
+        }
+    }
+
+     cout << "\nTranspose Matrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    for(int i = 0; i < m; i++){
+        int left = 0, right = m - 1;
+        while(left < right){
+            swap(arr[i][left], arr[i][right]);
+            left++;
+            right--;
+        }
+    }
+
+    cout << "\n90 degree rotated Matrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+}
