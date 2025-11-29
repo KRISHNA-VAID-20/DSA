@@ -510,3 +510,88 @@ int main(){
 //             matrix[0][j]=0;
         
 //         }
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int m,n;
+    cout << "m : ";
+    cin >> m;
+    cout << "n : ";
+    cin >> n;
+    int arr[m][n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout << "\nMatrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    int x=1;
+    int y=1;
+
+    for(int j=0;j<n;j++){
+        if(arr[0][j]==0){
+            x=0;
+        }
+    }
+
+    for(int i=0;i<m;i++){
+        if(arr[i][0]==0){
+            y=0;
+        }
+    }
+
+    for(int i=1;i<m;i++){
+        for(int j=1;j<n;j++){
+            if(arr[i][j]==0){
+                arr[0][j]=0;
+                arr[i][0]=0;
+            }
+        }
+    }
+
+    for(int j=0;j<n;j++){
+        if(arr[0][j]==0){
+            for(int i=1;i<m;i++){
+                arr[i][j]=0;
+            }
+        }
+    }
+
+    for(int i=0;i<m;i++){
+        if(arr[i][0]==0){
+            for(int j=0;j<n;j++){
+                arr[i][j]=0;
+            }
+        }
+    }
+
+    if(x==0){
+        for(int j=0;j<n;j++){
+            arr[0][j]=0;
+        }
+    }
+
+    if(y==0){
+        for(int i=0;i<m;i++){
+            arr[i][0]=0;
+        }
+    }
+
+    cout << "\nNew Matrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+}
