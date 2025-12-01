@@ -1,657 +1,657 @@
-// // 1 - Two sum 
-// // Brute Force Approach
-// #include <iostream>
-// using namespace std;
+// 1 - Two sum 
+// Brute Force Approach
+#include <iostream>
+using namespace std;
 
-// int main(){
-//     int n;
-//     cout << "Enter n : ";
-//     cin >> n;
-//     int arr[n];
-//     cout << "Enter " << n << " elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
-//     cout << "Entered Elements : ";
-//     for(int i=0;i<n;i++){
-//         cout << arr[i] << " ";
-//     }
-//     cout << endl;
-//     int target;
-//     cout << "Enter target element : ";
-//     cin >> target; 
-//     for(int i=0;i<n;i++){
-//         for(int j=i+1;j<n;j++){
-//             if(arr[i]+arr[j]==target){
-//                 cout << "Target exists " << endl;
-//                 cout << arr[i] << "+" << arr[j] << endl;
+int main(){
+    int n;
+    cout << "Enter n : ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter " << n << " elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    cout << "Entered Elements : ";
+    for(int i=0;i<n;i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    int target;
+    cout << "Enter target element : ";
+    cin >> target; 
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[i]+arr[j]==target){
+                cout << "Target exists " << endl;
+                cout << arr[i] << "+" << arr[j] << endl;
                 
-//             }
+            }
             
-//         }
-//     }
-//     return 0;
-// }
+        }
+    }
+    return 0;
+}
 
-// // Sorted arrys of 0 ,1 ,2 (better solution)
+// Sorted arrys of 0 ,1 ,2 (better solution)
 
-// #include <iostream>
-// using namespace std;
+#include <iostream>
+using namespace std;
 
-// int main(){
-//     int n;
-//     cout << "Enter n : ";
-//     cin >> n;
-//     int arr[n];
-//     cout << "Enter "<<n<< " elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
-//     cout << "Original array : ";
-//     for(int i=0;i<n;i++){
-//         cout << arr[i];
-//     }
-//     int cnt0=0,cnt1=0,cnt2=0;
-//     for(int i=0;i<n;i++){
-//         if(arr[i]==0){
-//             cnt0+=1;
-//         }
-//         else if(arr[i]==1){
-//             cnt1+=1;
-//         }
-//         else{
-//             cnt2+=1;
-//         }
-//     }
-//     for(int i=0;i<cnt0;i++){
-//         arr[i]=0;
-//     }
+int main(){
+    int n;
+    cout << "Enter n : ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter "<<n<< " elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    cout << "Original array : ";
+    for(int i=0;i<n;i++){
+        cout << arr[i];
+    }
+    int cnt0=0,cnt1=0,cnt2=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==0){
+            cnt0+=1;
+        }
+        else if(arr[i]==1){
+            cnt1+=1;
+        }
+        else{
+            cnt2+=1;
+        }
+    }
+    for(int i=0;i<cnt0;i++){
+        arr[i]=0;
+    }
 
-//     for(int i=cnt0;i<cnt0+cnt1;i++){
-//         arr[i]=1;
-//     }
+    for(int i=cnt0;i<cnt0+cnt1;i++){
+        arr[i]=1;
+    }
 
-//     for(int i=cnt0+cnt1;i<n;i++){
-//         arr[i]=2;
-//     }
-//     cout << "\nNew sorted array : ";
-//     for (int i=0;i<n;i++){
-//         cout << arr[i] << " ";
-//     }
-//     return 0;
-// }
+    for(int i=cnt0+cnt1;i<n;i++){
+        arr[i]=2;
+    }
+    cout << "\nNew sorted array : ";
+    for (int i=0;i<n;i++){
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
 
-// // optimal approach using (DUTCH NATIONAL FLAG ALGORITHM)
+// optimal approach using (DUTCH NATIONAL FLAG ALGORITHM)
 
-// #include <iostream>
-// using namespace std;
+#include <iostream>
+using namespace std;
 
-// int main(){
-//     int n;
-//     cout << "Enter n : ";
-//     cin >> n;
-//     int arr[n];
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
-//     cout << "Array entered : \n";
-//     for(int i=0;i<n;i++){
-//         cout << arr[i] << " ";
-//     }
-//     int low=0,mid=0,high=n-1;
+int main(){
+    int n;
+    cout << "Enter n : ";
+    cin >> n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    cout << "Array entered : \n";
+    for(int i=0;i<n;i++){
+        cout << arr[i] << " ";
+    }
+    int low=0,mid=0,high=n-1;
 
-//     for(int i=0;i<n;i++){
-//         if(arr[mid]==0){
-//             swap(arr[low],arr[mid]);
-//             low++;
-//             mid++;
-//         }
-//         else if (arr[mid]==1){
-//             mid++;
-//         }
-//         else{
-//             swap(arr[mid],arr[high]);
-//             high--;
-//         }
+    for(int i=0;i<n;i++){
+        if(arr[mid]==0){
+            swap(arr[low],arr[mid]);
+            low++;
+            mid++;
+        }
+        else if (arr[mid]==1){
+            mid++;
+        }
+        else{
+            swap(arr[mid],arr[high]);
+            high--;
+        }
         
-//     }
-//     cout << "\nSorted array : \n";
-//     for(int i=0;i<n;i++){
-//         cout << arr[i] << " ";
-//     }
-//     return 0;
-// }
+    }
+    cout << "\nSorted array : \n";
+    for(int i=0;i<n;i++){
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
 
-// // Moore's algorithm (Optimal solution)
-// // Majority element (> n/2 ) times 
+// Moore's algorithm (Optimal solution)
+// Majority element (> n/2 ) times 
 
-// #include <iostream>
-// using  namespace std;
+#include <iostream>
+using  namespace std;
 
-// int main(){
-//     int n;
-//     cout << "N : ";
-//     cin >>n;
-//     int arr[n];
-//     cout << "Enter "<< n  <<" elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     } 
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    } 
 
-//     int cnt=0;
-//     int ele;
+    int cnt=0;
+    int ele;
 
-//     for(int i=0;i<n;i++){
-//         if(cnt==0){
-//             cnt=1;
-//             ele=arr[i];
-//         }
-//         else if(arr[i]==ele){
-//             cnt++;
-//         }
-//         else{
-//             cnt --;
-//         }
-//     }
-//     int cnt1=0;
-//     for(int i=0;i<n;i++){
-//         if(arr[i]==ele){
-//             cnt1++;
-//         }
-//     }
-//     if(cnt1>n/2){
-//         cout << ele << " appeared "<< cnt1 << " times " << endl;
-//     }else{
+    for(int i=0;i<n;i++){
+        if(cnt==0){
+            cnt=1;
+            ele=arr[i];
+        }
+        else if(arr[i]==ele){
+            cnt++;
+        }
+        else{
+            cnt --;
+        }
+    }
+    int cnt1=0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==ele){
+            cnt1++;
+        }
+    }
+    if(cnt1>n/2){
+        cout << ele << " appeared "<< cnt1 << " times " << endl;
+    }else{
 
-//         cout << "No elements appeared more than " << n/2 << " times";
-//     }
+        cout << "No elements appeared more than " << n/2 << " times";
+    }
 
-//     return 0;
-
-
-// }
-
-// // Kadane's Algorithm 
-
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int n;
-//     cout << "N : ";
-//     cin >>n;
-//     int arr[n];
-//     cout << "Enter "<< n  <<" elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
-
-//     int sum=0;
-//     int maxi=INT_MIN;
-
-//     for(int i=0;i<n;i++){
-//         sum+=arr[i];
-
-//         if(sum>maxi){
-//             maxi=sum;
-//         }
-
-//         if(sum<0){
-//             sum=0;
-//         }
-//     }
-//     cout << "Max sub array : "<< maxi;
-
-//     return 0;
+    return 0;
 
 
-// }
+}
 
-// // to print the subarray also
-// #include <bits/stdc++.h>
-// using namespace std;
+// Kadane's Algorithm 
 
-// int main(){
-//     int n;
-//     cout << "N : ";
-//     cin >>n;
-//     int arr[n];
-//     cout << "Enter "<< n  <<" elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
+#include <bits/stdc++.h>
+using namespace std;
 
-//     int sum=0;
-//     int maxi=INT_MIN;
-//     int start,ansstart,ansend;
-//     for(int i=0;i<n;i++){
-//         if(sum==0) start=i;
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+
+    int sum=0;
+    int maxi=INT_MIN;
+
+    for(int i=0;i<n;i++){
+        sum+=arr[i];
+
+        if(sum>maxi){
+            maxi=sum;
+        }
+
+        if(sum<0){
+            sum=0;
+        }
+    }
+    cout << "Max sub array : "<< maxi;
+
+    return 0;
+
+
+}
+
+// to print the subarray also
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+
+    int sum=0;
+    int maxi=INT_MIN;
+    int start,ansstart,ansend;
+    for(int i=0;i<n;i++){
+        if(sum==0) start=i;
         
-//         sum+=arr[i];
+        sum+=arr[i];
 
-//         if(sum>maxi){
-//             maxi=sum;
-//             ansstart=start;
-//             ansend=i;
+        if(sum>maxi){
+            maxi=sum;
+            ansstart=start;
+            ansend=i;
 
-//         }
+        }
 
-//         if(sum<0){
-//             sum=0;
-//         }
-//     }
-//     cout << "Max sub array : "<< maxi;
-//     cout << "\nMax sub array is from index : "<< "[" << ansstart <<"," << ansend << "]";
+        if(sum<0){
+            sum=0;
+        }
+    }
+    cout << "Max sub array : "<< maxi;
+    cout << "\nMax sub array is from index : "<< "[" << ansstart <<"," << ansend << "]";
 
-//     return 0;
-
-
-// }
-
-// // Best time to buy and sell stocks 
-
-// #include <iostream>
-// using namespace std;
-
-// int main(){
-//     int n;
-//     cout << "N : ";
-//     cin >>n;
-//     int arr[n];
-//     cout << "Enter "<< n  <<" elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
-
-//     int mini=arr[0];
-//     int profit=0;
-
-//     for(int i=1;i<n;i++){
-//         int cost=arr[i]-mini;
-//         profit=max(profit,cost);
-//         mini=min(mini,arr[i]);
-//     }
-//     cout << "profit = " << profit;
-
-//     return 0;
-// }
+    return 0;
 
 
-// #include <bits/stdc++.h>
-// using namespace std;
+}
 
-// int main(){
-//     int n;
-//     cout << "N : ";
-//     cin >>n;
-//     int arr[n];
-//     cout << "Enter "<< n  <<" elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
+// Best time to buy and sell stocks 
 
-//     vector <int> tot(n,0);
+#include <iostream>
+using namespace std;
 
-//     int pos=0;
-//     int neg=1;
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
 
-//     for(int i=0;i<n;i++){
-//         if(arr[i]<0){
-//             tot[neg]=arr[i];
-//             neg+=2;
+    int mini=arr[0];
+    int profit=0;
 
-//         }
-//         else{
-//             tot[pos]=arr[i];
-//             pos+=2;
-//         }
-//     }
+    for(int i=1;i<n;i++){
+        int cost=arr[i]-mini;
+        profit=max(profit,cost);
+        mini=min(mini,arr[i]);
+    }
+    cout << "profit = " << profit;
 
-//     cout << "New array : ";
-//     for(auto it: tot){
-//         cout << it << " ";
-//     }
+    return 0;
+}
 
-//     return 0;
-// }
 
-// // Next permutation { better soln using inbuilt stl function}
+#include <bits/stdc++.h>
+using namespace std;
 
-// #include <bits/stdc++.h>
-// using namespace std;
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
 
-// int main(){
+    vector <int> tot(n,0);
+
+    int pos=0;
+    int neg=1;
+
+    for(int i=0;i<n;i++){
+        if(arr[i]<0){
+            tot[neg]=arr[i];
+            neg+=2;
+
+        }
+        else{
+            tot[pos]=arr[i];
+            pos+=2;
+        }
+    }
+
+    cout << "New array : ";
+    for(auto it: tot){
+        cout << it << " ";
+    }
+
+    return 0;
+}
+
+// Next permutation { better soln using inbuilt stl function}
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
     
-//     vector <int> arr={3,2,1};
+    vector <int> arr={3,2,1};
 
-//     next_permutation(arr.begin(),arr.end());
-//     for(auto it : arr){
-//         cout << it;
-//     }
-//     return 0;
-// }
-
-
-// // (Better solution)  
-
-// //   int n= nums.size();
-// //         int index=-1;
-
-// //         for(int i=n-2;i>=0;i--){
-// //             if(nums[i]<nums[i+1]){
-// //                 index=i;
-// //                 break;
-// //             }
-// //         }
-// //         if(index==-1){
-// //             reverse(nums.begin(),nums.end());
-// //             return ;
-// //         }
-
-// //         for(int i=n-1;i>index;i--){
-// //             if(nums[i]>nums[index]){
-// //                 swap(nums[i],nums[index]);
-// //                 break;
-// //             }
-
-// //         }
-
-// //         reverse(nums.begin()+ index+1,nums.end());
-// //         return ;
+    next_permutation(arr.begin(),arr.end());
+    for(auto it : arr){
+        cout << it;
+    }
+    return 0;
+}
 
 
+// (Better solution)  
 
-// #include <bits/stdc++.h>
-// using namespace std;
+//   int n= nums.size();
+//         int index=-1;
 
-// int main(){
-//     int n;
-//     cout << "N : ";
-//     cin >>n;
-//     int arr[n];
-//     cout << "Enter "<< n  <<" elements : ";
-//     for(int i=0;i<n;i++){
-//         cin >> arr[i];
-//     }
-//     vector <int> leaders;
-
-
-//     int maxright=arr[n-1];
-//     leaders.push_back(maxright);
-
-//     for(int i=n-2;i>=0;i--){
-//         if(arr[i]>maxright){
-//             leaders.push_back(arr[i]);
-//             maxright=arr[i];
-//         }
-//     }
-//     reverse(leaders.begin(),leaders.end());
-//     cout << "Leaders : ";
-//     for(auto it : leaders){
-//         cout << it << " ";
-//     }
-//     return 0;
-// }
-
-// // Set Zeroes matrix
-
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int m,n;
-//     cout << "m : ";
-//     cin >> m;
-//     cout << "n : ";
-//     cin >> n;
-//     int arr[m][n];
-//     int row[m];
-//     int col[n];
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cin >> arr[i][j];
-//         }
-//     }
-//     cout << "\nMAtrix : "<< endl;   
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
-//         }
-//         printf("\n");
-//     }
-
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             if(arr[i][j] ==0){
-//                 row[i]=1;
-//                 col[i]=1;
+//         for(int i=n-2;i>=0;i--){
+//             if(nums[i]<nums[i+1]){
+//                 index=i;
+//                 break;
 //             }
 //         }
-//     }
+//         if(index==-1){
+//             reverse(nums.begin(),nums.end());
+//             return ;
+//         }
 
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             if(row[i] ==1 || col[j] ==1){
-//                 arr[i][j]=0;
+//         for(int i=n-1;i>index;i--){
+//             if(nums[i]>nums[index]){
+//                 swap(nums[i],nums[index]);
+//                 break;
 //             }
-//         }
-//     }
 
-//     cout << "\nNew matrix : ";
-
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
 //         }
-//         printf("\n");
-//     }
-//     return 0;
-// }
-//  // Optimal Approach for reducing Space complexity
+
+//         reverse(nums.begin()+ index+1,nums.end());
+//         return ;
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "N : ";
+    cin >>n;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    vector <int> leaders;
+
+
+    int maxright=arr[n-1];
+    leaders.push_back(maxright);
+
+    for(int i=n-2;i>=0;i--){
+        if(arr[i]>maxright){
+            leaders.push_back(arr[i]);
+            maxright=arr[i];
+        }
+    }
+    reverse(leaders.begin(),leaders.end());
+    cout << "Leaders : ";
+    for(auto it : leaders){
+        cout << it << " ";
+    }
+    return 0;
+}
+
+// Set Zeroes matrix
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int m,n;
+    cout << "m : ";
+    cin >> m;
+    cout << "n : ";
+    cin >> n;
+    int arr[m][n];
+    int row[m];
+    int col[n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout << "\nMAtrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(arr[i][j] ==0){
+                row[i]=1;
+                col[i]=1;
+            }
+        }
+    }
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(row[i] ==1 || col[j] ==1){
+                arr[i][j]=0;
+            }
+        }
+    }
+
+    cout << "\nNew matrix : ";
+
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+    return 0;
+}
+ // Optimal Approach for reducing Space complexity
  
-// // int m =matrix.size();
-// //         int n = matrix[0].size();
-// //         int x =1;
-// //         int y =1;
-// //         for(int j=0;j<n;j++)
-// //         {
-// //             if(matrix[0][j]==0)x=0;
+// int m =matrix.size();
+//         int n = matrix[0].size();
+//         int x =1;
+//         int y =1;
+//         for(int j=0;j<n;j++)
+//         {
+//             if(matrix[0][j]==0)x=0;
             
-// //         }
+//         }
         
-// //         for(int i=0;i<m;i++)
-// //         {
-// //             if(matrix[i][0]==0)y=0;
-// //         }
+//         for(int i=0;i<m;i++)
+//         {
+//             if(matrix[i][0]==0)y=0;
+//         }
        
             
-// //         for(int i=1;i<m;i++)
-// //         {
-// //             for(int j=1;j<n;j++)
-// //             {
-// //                 if(matrix[i][j]==0)
-// //                 {
-// //                     matrix[i][0]=0;
-// //                     matrix[0][j]=0;
-// //                 }
-// //             }
-// //         }
-        
-        
-// //          for(int j=1;j<n;j++)
-// //         {
-// //            if(matrix[0][j]==0)
-// //            {
-// //                for(int i=1;i<m;i++)
-// //                    matrix[i][j]=0;
-// //            }
-// //         }
-        
-// //         for(int i=1;i<m;i++)
-// //         {
-// //             if(matrix[i][0]==0)
-// //             {
-// //                 for(int j=0;j<n;j++)
-// //                     matrix[i][j]=0;
-// //             }
-// //         }
-        
-// //         if(y==0)
-// //         {
-// //             for(int i=0;i<m;i++)
-// //             {
-// //                 matrix[i][0]=0;
-// //             }
-// //         }
-        
-// //          if(x==0)
-// //         {      
-// //              for(int j=0;j<n;j++)
-// //             matrix[0][j]=0;
-        
-// //         }
-
-// #include <iostream>
-// using namespace std;
-
-// int main(){
-//     int m,n;
-//     cout << "m : ";
-//     cin >> m;
-//     cout << "n : ";
-//     cin >> n;
-//     int arr[m][n];
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cin >> arr[i][j];
-//         }
-//     }
-//     cout << "\nMatrix : "<< endl;   
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
-//         }
-//         printf("\n");
-//     }
-
-//     int x=1;
-//     int y=1;
-
-//     for(int j=0;j<n;j++){
-//         if(arr[0][j]==0){
-//             x=0;
-//         }
-//     }
-
-//     for(int i=0;i<m;i++){
-//         if(arr[i][0]==0){
-//             y=0;
-//         }
-//     }
-
-//     for(int i=1;i<m;i++){
-//         for(int j=1;j<n;j++){
-//             if(arr[i][j]==0){
-//                 arr[0][j]=0;
-//                 arr[i][0]=0;
+//         for(int i=1;i<m;i++)
+//         {
+//             for(int j=1;j<n;j++)
+//             {
+//                 if(matrix[i][j]==0)
+//                 {
+//                     matrix[i][0]=0;
+//                     matrix[0][j]=0;
+//                 }
 //             }
 //         }
-//     }
-
-//     for(int j=0;j<n;j++){
-//         if(arr[0][j]==0){
-//             for(int i=1;i<m;i++){
-//                 arr[i][j]=0;
+        
+        
+//          for(int j=1;j<n;j++)
+//         {
+//            if(matrix[0][j]==0)
+//            {
+//                for(int i=1;i<m;i++)
+//                    matrix[i][j]=0;
+//            }
+//         }
+        
+//         for(int i=1;i<m;i++)
+//         {
+//             if(matrix[i][0]==0)
+//             {
+//                 for(int j=0;j<n;j++)
+//                     matrix[i][j]=0;
 //             }
 //         }
-//     }
-
-//     for(int i=0;i<m;i++){
-//         if(arr[i][0]==0){
-//             for(int j=0;j<n;j++){
-//                 arr[i][j]=0;
+        
+//         if(y==0)
+//         {
+//             for(int i=0;i<m;i++)
+//             {
+//                 matrix[i][0]=0;
 //             }
 //         }
-//     }
-
-//     if(x==0){
-//         for(int j=0;j<n;j++){
-//             arr[0][j]=0;
+        
+//          if(x==0)
+//         {      
+//              for(int j=0;j<n;j++)
+//             matrix[0][j]=0;
+        
 //         }
-//     }
 
-//     if(y==0){
-//         for(int i=0;i<m;i++){
-//             arr[i][0]=0;
-//         }
-//     }
+#include <iostream>
+using namespace std;
 
-//     cout << "\nNew Matrix : "<< endl;   
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
-//         }
-//         printf("\n");
-//     }
+int main(){
+    int m,n;
+    cout << "m : ";
+    cin >> m;
+    cout << "n : ";
+    cin >> n;
+    int arr[m][n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout << "\nMatrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
 
-// }
+    int x=1;
+    int y=1;
 
-// // Rotate by 90 degree (Brute force) ---
-// #include <bits/stdc++.h>
-// using namespace std;
+    for(int j=0;j<n;j++){
+        if(arr[0][j]==0){
+            x=0;
+        }
+    }
 
-// int main(){
-//     int m,n;
-//     cout << "m : ";
-//     cin >> m;
-//     cout << "n : ";
-//     cin >> n;
-//     int arr[m][n];
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cin >> arr[i][j];
-//         }
-//     }
-//     cout << "\nMatrix : "<< endl;   
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
-//         }
-//         printf("\n");
-//     }
+    for(int i=0;i<m;i++){
+        if(arr[i][0]==0){
+            y=0;
+        }
+    }
 
-//     for(int i=0;i<m;i++){
-//         for(int j=i+1;j<n;j++){
-//             swap(arr[i][j],arr[j][i]);
-//         }
-//     }
+    for(int i=1;i<m;i++){
+        for(int j=1;j<n;j++){
+            if(arr[i][j]==0){
+                arr[0][j]=0;
+                arr[i][0]=0;
+            }
+        }
+    }
 
-//      cout << "\nTranspose Matrix : "<< endl;   
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
-//         }
-//         printf("\n");
-//     }
+    for(int j=0;j<n;j++){
+        if(arr[0][j]==0){
+            for(int i=1;i<m;i++){
+                arr[i][j]=0;
+            }
+        }
+    }
 
-//     for(int i = 0; i < m; i++){
-//         int left = 0, right = m - 1;
-//         while(left < right){
-//             swap(arr[i][left], arr[i][right]);
-//             left++;
-//             right--;
-//         }
-//     }
+    for(int i=0;i<m;i++){
+        if(arr[i][0]==0){
+            for(int j=0;j<n;j++){
+                arr[i][j]=0;
+            }
+        }
+    }
 
-//     cout << "\n90 degree rotated Matrix : "<< endl;   
-//     for(int i=0;i<m;i++){
-//         for(int j=0;j<n;j++){
-//             cout << arr[i][j] << " ";
-//         }
-//         printf("\n");
-//     }
+    if(x==0){
+        for(int j=0;j<n;j++){
+            arr[0][j]=0;
+        }
+    }
 
-// }
+    if(y==0){
+        for(int i=0;i<m;i++){
+            arr[i][0]=0;
+        }
+    }
+
+    cout << "\nNew Matrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+}
+
+// Rotate by 90 degree (Brute force) ---
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int m,n;
+    cout << "m : ";
+    cin >> m;
+    cout << "n : ";
+    cin >> n;
+    int arr[m][n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin >> arr[i][j];
+        }
+    }
+    cout << "\nMatrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    for(int i=0;i<m;i++){
+        for(int j=i+1;j<n;j++){
+            swap(arr[i][j],arr[j][i]);
+        }
+    }
+
+     cout << "\nTranspose Matrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+    for(int i = 0; i < m; i++){
+        int left = 0, right = m - 1;
+        while(left < right){
+            swap(arr[i][left], arr[i][right]);
+            left++;
+            right--;
+        }
+    }
+
+    cout << "\n90 degree rotated Matrix : "<< endl;   
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout << arr[i][j] << " ";
+        }
+        printf("\n");
+    }
+
+}
 
 // Print matrix in spiral way (Optimal only )
 
@@ -710,4 +710,34 @@ int main(){
         cout << it << " ";
     }
     return 0;
+}
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    unordered_map<int,int> mpp;
+    mpp[0]=1;
+    int n,k;
+    cout << "N : ";
+    cin >>n;
+    cout << "K : ";
+    cin >> k;
+    int arr[n];
+    cout << "Enter "<< n  <<" elements : ";
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    int presum=0,cnt=0;
+    int remove;
+    for(int i=0;i<n;i++){
+        presum+=arr[i];
+        remove=presum-k;
+        cnt+=mpp[remove];
+        mpp[presum]+=1;
+    }
+
+    cout << "Output : " << cnt;
+    return 0;
+
 }
