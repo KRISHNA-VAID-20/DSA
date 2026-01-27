@@ -741,3 +741,54 @@ int main(){
     return 0;
 
 }
+
+// just for practice 
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cout << "Enter n : ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter "<<n << " elements : "<< endl;
+    for(int i=0;i<n;i++){
+        cin >> arr[i];
+    }
+    cout << "Entered elements : " << endl;
+    for(int i=0;i<n;i++){
+        cout << arr[i] <<" ";
+    }
+
+    int target;
+    int found=0;
+    cout << "\nEnter target : ";
+    cin >> target;
+
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[i]+arr[j]==target){
+                found=1;
+                if(found==1){
+                    cout << arr[i] << "+" << arr[j] << "=" << target <<endl;
+                }
+            }
+        }
+        
+    }
+    // if(found==1){
+    //     cout << "Result found ";
+    // }
+    // else{
+    //     cout << "Not found";
+    // }
+
+    if(found==0){
+        cout << "No result";
+    }
+    
+    
+    return 0;
+
+}
