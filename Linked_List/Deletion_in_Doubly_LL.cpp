@@ -189,35 +189,41 @@ Node* deletetail(Node* head){
 
 
 Node* deletekthpos(Node* head,int k){
-    
-    Node* temp=head;
+    if(head==NULL){
+        return NULL;
+    }
+    Node* knode=head;
     int cnt=0;
 
-    while(temp!=NULL){
+    while(knode!=NULL){
 
         cnt++;
-        temp=temp->next;
-
-        if(cnt==k){
-
-        }
-        if(head==NULL || head->next==NULL){
-            return NULL;
-        }
-        
-        if(head->next && head->back == NULL){
-            return NULL;
-        }
-
-        if(head->back==NULL){
-            deletehead(head);
-        }        
+        if(cnt==k)break;
+        knode=knode->next;
 
     }
 
+    Node* prev=knode->back;
+    Node* front=knode->next;
 
-  
+    if(prev==NULL && front==NULL){
+        return NULL;
+    }
+    else if(prev==NULL){
+        return deletehead(head); 
+    }
+    else if(front==NULL){
+        return deletetail(head);
+    }
 
+    prev->next=front;
+    front->back=prev;
+
+    knode->next=nullptr;
+    knode->back=nullptr;
+
+    free(knode);
+    return head;
 
 }
 
@@ -232,5 +238,6 @@ void printdll(Node* head){
 int main(){
     vector <int> arr={1,2,3,4,5};
     Node* head=convert2dll(arr);
+    head=deletekthpos(head,6);
     printdll(head);
 }
