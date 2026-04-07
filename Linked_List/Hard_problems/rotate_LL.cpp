@@ -76,11 +76,9 @@ int main(){
     vector <int> arr={1,2,3,4,5,6};
     Node* head=convert2LL(arr);
     printLL(head);
-    cout << '\n';
+    cout << '\n' ;
     head=rotatebyk(head,12);
-    printLL(head);
-  
-   
+    printLL(head); 
     return 0;
 }
 
