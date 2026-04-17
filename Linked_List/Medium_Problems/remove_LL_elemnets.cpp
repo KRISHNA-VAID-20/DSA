@@ -16,7 +16,6 @@
 //         dummy->next = head;
 
 //         ListNode* current = dummy;
-
 //         while (current->next != nullptr) {
 //             if (current->next->val == val) {
 //                 ListNode* temp = current->next;
