@@ -104,6 +104,7 @@ int main(){
     int is_sorted=1;
     for(int i=1;i<n;i++){
         if(arr1[i]>=arr1[i-1]){
+            is_sorted=1;
         }
         else{
             is_sorted=0;
@@ -666,3 +667,20 @@ int main(){
     cout << "\nAppeared once : "<<Xor;
     return 0;
 }
+
+// Pascals triangle row (Easy)
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> ans;
+        long long coef=1;
+
+        for(int j=1;j<=rowIndex+1;j++){
+            ans.push_back(coef);
+            coef=coef*(rowIndex-j+1)/j;
+        }
+
+        return ans;
+        
+    }
+};
